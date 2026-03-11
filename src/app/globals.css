@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #01241a;
+  --primary: #10b981; /* Vibrant Emerald/Green */
+  --secondary: #059669; /* Dark Green */
+  --accent: #dcfce7; /* Mint Green */
+  --card: rgba(255, 255, 255, 0.9);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-medical-card: var(--card);
+  
+  --font-sans: "Outfit", var(--font-geist-sans);
+}
+
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .glass {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
